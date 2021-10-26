@@ -2,8 +2,9 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {UserLdap} from "../model/user-ldap";
 import {MatPaginator} from "@angular/material/paginator";
-import {LDAP_USERS} from "../model/ldap-mock-data";
 import {MatSlideToggleChange, MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {UsersService} from "../service/users.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-ldap-list',
@@ -18,7 +19,7 @@ export class LdapListComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator
 
-  constructor() { }
+  constructor(private usersService: UsersService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -27,12 +28,17 @@ export class LdapListComponent implements OnInit {
   }
 
   private getUsers(): void {
-    this.dataSource.data = LDAP_USERS;
-    if(this.unactiveSelected){
-      this.dataSource.data = this.dataSource.data.filter(user =>
-      user.active === false
-      );
-    }
+    this.usersService.getUsers().subscribe(
+      users => {
+        if(this.unactiveSelected){
+          this.dataSource.data = users.filter(user=>
+          user.active === false
+          );
+        }else {
+          this.dataSource.data = users;
+        }
+      }
+    );
   }
 
   filterPredicate(data, filter): boolean {
