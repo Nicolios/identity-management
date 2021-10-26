@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {Location} from "@angular/common";
+import {UserLdap} from "../app/model/user-ldap";
+import {UsersService} from "../app/service/users.service";
 
 @Component({
   selector: 'app-ldap-detail',
@@ -7,9 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LdapDetailComponent implements OnInit {
 
-  constructor() { }
+  user: UserLdap;
+
+  constructor(
+    private usersService: UsersService,
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
+    this.getUser();
+  }
+
+  private getUser(): void {
+    const login = this.route.snapshot.paramMap.get('id');
+
+    this.usersService.getUser(login).subscribe(
+      user => { this.user = user; console.log("LdapDetail getUser ="); console.log(user);}
+    )
   }
 
 }

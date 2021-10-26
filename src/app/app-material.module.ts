@@ -11,6 +11,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatTooltip, MatTooltipModule} from "@angular/material/tooltip";
 
 
 
@@ -27,6 +28,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
+    MatTooltipModule
   ]
 })
 export class AppMaterialModule { }
