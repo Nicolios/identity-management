@@ -16,6 +16,17 @@ export class LdapDetailComponent implements OnInit {
   processLoadRunning = false;
   processValidateRunning = false;
 
+  userForm = this.fb.group({
+    login: [''],
+    nom: [''],
+    prenom: [''],
+    passwordGroup: this.fb.group({
+      password: [''],
+      confirmPassword: ['']
+    }, {validators: passwordValidator}),
+    mail: {value: '', disabled: true},
+  });
+
   constructor(
     private usersService: UsersService,
     private route: ActivatedRoute,
@@ -33,14 +44,25 @@ export class LdapDetailComponent implements OnInit {
     console.log("getUser= " + login);
   }
 
-  private formGetValue(name: string): any {return null; }
+  private formGetValue(name: string): any {
+    return this.userForm.get(name).value;
+  }
+
   goToLdap(): void{
     this.router.navigate(['user/list']);
   }
 
   onSubmitForm(): void{}
-  updateLogin(): void{}
-  updateMail(): void{}
+
+  updateLogin(): void{
+    this.userForm.get('login').setValue((this.formGetValue('prenom') + '.' + this.formGetValue('nom')).toLowerCase());
+    this.updateMail();
+  }
+
+  updateMail(): void{
+    this.userForm.get('mail').setValue(this.formGetValue('login').toLowerCase() + 'epsi.lan');
+  }
+
   isFormValid(): boolean {return false; }
 
 }
