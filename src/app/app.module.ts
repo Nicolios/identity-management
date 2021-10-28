@@ -21,6 +21,9 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatInputModule} from "@angular/material/input";
 import { LdapDetailComponent } from '../ldap-detail/ldap-detail.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { LdapEditComponent } from './ldap-edit/ldap-edit.component';
+import { LdapAddComponent } from './ldap-add/ldap-add.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     LdapListComponent,
     PageNotFoundComponent,
     NavbarComponent,
-    LdapDetailComponent
+    LdapDetailComponent,
+    LdapEditComponent,
+    LdapAddComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +52,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MatPaginatorModule,
     MatFormFieldModule,
     MatSlideToggleModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
