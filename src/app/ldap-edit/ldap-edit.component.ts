@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import {LdapDetailComponent} from "../ldap-detail/ldap-detail.component";
+import {UsersService} from "../service/users.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-ldap-edit',
-  templateUrl: './ldap-edit.component.html',
-  styleUrls: ['./ldap-edit.component.css']
+  templateUrl: '../ldap-detail/ldap-detail.component.html',
+  styleUrls: ['../ldap-detail/ldap-detail.component.css']
 })
-export class LdapEditComponent implements OnInit {
+export class LdapEditComponent extends LdapDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(userService: UsersService, route: ActivatedRoute, fb: FormBuilder, router: Router) {
+    super(userService, route, fb, router);
+  }
 
   ngOnInit(): void {
+    super.ngOnInit();
+  }
+
+  validateForm(): void {
+    console.log("LdapEditComponent - validateForm");
   }
 
 }

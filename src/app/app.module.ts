@@ -19,7 +19,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatInputModule} from "@angular/material/input";
-import { LdapDetailComponent } from '../ldap-detail/ldap-detail.component';
+import { LdapDetailComponent } from './ldap-detail/ldap-detail.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { LdapEditComponent } from './ldap-edit/ldap-edit.component';
