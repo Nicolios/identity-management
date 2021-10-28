@@ -23,7 +23,7 @@ export class LdapDetailComponent implements OnInit {
     passwordGroup: this.fb.group({
       password: [''],
       confirmPassword: ['']
-    }, {validators: passwordValidator}),
+    },),
     mail: {value: '', disabled: true},
   });
 
