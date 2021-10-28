@@ -12,7 +12,7 @@ import {FormBuilder} from "@angular/forms";
 export class LdapEditComponent extends LdapDetailComponent implements OnInit {
 
   constructor(userService: UsersService, route: ActivatedRoute, fb: FormBuilder, router: Router) {
-    super(userService, route, fb, router);
+    super(false, fb, router);
   }
 
   ngOnInit(): void {

@@ -31,7 +31,6 @@ import { LdapAddComponent } from './ldap-add/ldap-add.component';
     LdapListComponent,
     PageNotFoundComponent,
     NavbarComponent,
-    LdapDetailComponent,
     LdapEditComponent,
     LdapAddComponent
   ],
