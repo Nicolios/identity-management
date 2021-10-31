@@ -25,6 +25,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { LdapEditComponent } from './ldap-edit/ldap-edit.component';
 import { LdapAddComponent } from './ldap-add/ldap-add.component';
 import { AlertComponent } from './share/alert/alert.component';
+import { LdapManagementModule } from './ldap-management/ldap-management.module';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { AlertComponent } from './share/alert/alert.component';
     MatFormFieldModule,
     MatSlideToggleModule,
     MatInputModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    LdapManagementModule
   ],
   providers: [],
   bootstrap: [AppComponent]
