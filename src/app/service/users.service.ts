@@ -9,6 +9,7 @@ import {Observable, of, throwError} from "rxjs";
 export class UsersService {
 
   users: UserLdap[] = LDAP_USERS;
+  private static users: UserLdap[];
 
   constructor() { }
 

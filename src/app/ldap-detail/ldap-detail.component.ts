@@ -1,17 +1,21 @@
-import {Component, Injectable, Input, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {Location} from "@angular/common";
+// import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 import {UserLdap} from "../model/user-ldap";
-import {UsersService} from "../service/users.service";
 import {FormBuilder} from "@angular/forms";
+import {ConfirmValidParentMatcher, passwordValidator} from "./passwords-validator.directive";
+import {Component, Inject, Injectable} from "@angular/core";
 
-export abstract class LdapDetailComponent implements OnInit {
+@Component({
+  template: ''
+})
+export abstract class LdapDetailComponent {
 
   user: UserLdap;
   processLoadRunning = false;
   processValidateRunning = false;
 
   passwordPlaceHolder: string;
+  confirmValidParentMatcher = new ConfirmValidParentMatcher();
 
   errorMessage = '';
 
@@ -27,7 +31,7 @@ export abstract class LdapDetailComponent implements OnInit {
   });
 
   protected constructor(
-    public addForm: boolean,
+    @Inject('addForm') public addForm: boolean,
     /*private route: ActivatedRoute,*/
     private fb: FormBuilder,
     private router: Router,
