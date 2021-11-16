@@ -18,7 +18,7 @@ import {MAT_SNACK_BAR_DATA, MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} fr
 
 
 @NgModule({
-  imports: [
+  exports: [
     CommonModule,
     BrowserAnimationsModule,
     LayoutModule,
