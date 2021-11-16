@@ -88,17 +88,15 @@ export abstract class LdapDetailComponent {
     this.userForm.get('nom').setValue(this.user.nom);
     this.userForm.get('prenom').setValue(this.user.prenom);
     this.userForm.get('mail').setValue(this.user.mail);
-
-    /*
     this.userForm.get('employeNumero').setValue(this.user.employeNumero);
     this.userForm.get('employeNiveau').setValue(this.user.employeNiveau);
     this.userForm.get('dateEmbauche').setValue(this.user.dateEmbauche);
     this.userForm.get('publisherId').setValue(this.user.publisherId);
     this.userForm.get('active').setValue(this.user.active);
-    */
   }
 
   protected getUserFromFormControl(): UserLdap{
+    console.log('getUserFromFormControl');
     return {
       login: this.userForm.get('login').value,
       nom: this.userForm.get('nom').value,

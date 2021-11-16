@@ -27,6 +27,7 @@ export class UsersService {
   }
 
   updateUser(userToUpdate: UserLdap): Observable<UserLdap>{
+    console.log('updateUser')
     const user = UsersService.users.find(u => u.login === userToUpdate.login);
     if(user){
       user.nom = userToUpdate.nom;
